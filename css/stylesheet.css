@@ -1,114 +1,198 @@
+* {
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "PostNL-Regular";
+    src: url("PostNL-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    padding: 0;
+    font-family: "PostNL-Regular","Open Sans","Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #606c71;
+    position: relative;
+    display: flex;
+    min-width: 1100px;
+}
+
+/* ---------- MEDIA ---------- */
+
+img {
+    margin-left: 0.5em;
+    margin-bottom: 1em;
+}
+
+.image-header-postnl-logo {
+    margin-left: 39%;
+    height: 130px;
+    position: absolute;
+    margin-top: 220px;
+}
+
+video {
+    margin: 0.5em 0 0.5em 0.5em;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px black;
+}
+
+/* ---------- LINKS ---------- */
+
+a {
+    color: #ed7000;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:hover, a:focus {
+    color: #526263;
+}
+
+/* ---------- HEADINGS ---------- */
+
+h1 {
+    border-bottom: 1px solid #ed7000;
+}
+
+/* ---------- UI ---------- */
+
+.nice {
+    border-radius: 5px;
+    border: solid #ed8c00 1px;
+    display: inline-block;
+    padding: 0 5px;
+}
+
+.btn {
+    display: inline-block;
+    margin-bottom: 1rem;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.3rem;
+}
+
+.box {
+    background-color: rgba(15, 92, 71, 0.04);
+    box-shadow: inset 0 0 10px #0f78593b;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+/* ---------- HEADER ---------- */
+
+.page-header {
+    padding: 30px;
+    color: #fff;
+    text-align: center;
+    background-image: url(../media/PostNL-header.jpg);
+    height: 278px;
+    background-position: 75% 24%;
+    max-height: 70vh;
+    min-height: 390px;
+}
+
+.project-name {
+    font-size: 35px;
+    font-weight: normal;
+    border-bottom: none;
+}
+
+/* ---------- NAV ---------- */
+
+.menu {
+    background-color: white;
+    border-right: 1px solid #ed7000;
+    position: fixed;
+    height: 100%;
+    overflow-y: auto;
+    z-index: 10;
+}
+
+.nav {
+    list-style: none;
+}
+
+/* ---------- CONTENT ---------- */
+
+.main-content img {
+    max-width: 100%;
+}
+
+.main-content h1,
+.main-content h2,
+.main-content h3,
+.main-content h4 {
+    color: #ed7000;
+    font-weight: normal;
+}
+
+.main-content p {
+    margin: 0.1em 0 0.5em;
+    font-size: 16px;
+}
+
+/* ---------- FOOTER ---------- */
+
+.site-footer {
+    margin-top: 2rem;
+    border-top: solid 1px #eff0f1;
+    background-color: #f3f4f7;
+}
+
+/* ========================================================= */
+/* ✅ PRINT FIX — VEILIG EN MINIMAAL */
+/* ========================================================= */
+
 @media print {
 
-    /* Forceer nette basis */
     body {
-        display: block !important;
-        min-width: auto !important;
-        font-family: "PostNL-Regular","Open Sans", Arial, sans-serif !important;
-        font-size: 14px !important;
-        line-height: 1.4 !important;
-        color: #606c71 !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        background: white !important;
+        display: block;          /* geen flex → voorkomt layout bugs */
+        min-width: auto;         /* voorkomt overflow */
     }
 
-    /* Verberg UI dingen die niet in PDF horen */
-    .menu,
-    .navbar,
-    .navbar-header,
+    .menu {
+        display: none;           /* sidebar weg in PDF */
+    }
+
     .image-header-postnl-logo {
-        display: none !important;
+        position: static;        /* voorkomt overlapping */
+        margin: 0 auto;
+        display: block;
     }
 
-    /* Header fix */
     .page-header {
-        height: auto !important;
-        min-height: auto !important;
-        background: none !important;
-        padding: 10px 0 !important;
-    }
-
-    /* Content netjes centreren */
-    .main-content {
-        padding: 0 20px !important;
-        max-width: 800px;
-        margin: 0 auto !important;
-    }
-
-    /* Typography behouden */
-    h1, h2, h3, h4 {
-        color: #ed7000 !important;
-        page-break-after: avoid;
-    }
-
-    h1 {
-        border-bottom: 1px solid #ed7000;
-    }
-
-    p, li {
-        color: #606c71 !important;
-    }
-
-    a {
-        color: #ed7000 !important;
-        text-decoration: none !important;
-    }
-
-    /* Box styling behouden */
-    .box {
-        border: 1px solid #ed7000 !important;
-        box-shadow: none !important;
-        background-color: #fff7f0 !important;
-    }
-
-    /* Images netjes */
-    img {
-        max-width: 100% !important;
-        page-break-inside: avoid;
-    }
-
-    /* Lists */
-    ul, ol {
-        margin-top: 0.5em;
-    }
-
-    /* Code blocks netjes */
-    pre, code {
-        background: #f3f6fa !important;
-        border: 1px solid #ddd !important;
-    }
-
-    /* Footer simpeler */
-    .site-footer,
-    .page-footer {
-        background: none !important;
-        color: #606c71 !important;
-    }
-
-    /* Voorkom rare page breaks */
-    h2, h3 {
-        page-break-after: avoid;
-    }
-
-    p, ul, ol {
-        page-break-inside: avoid;
+        height: auto;
+        min-height: auto;
+        background: none;        /* voorkomt broken backgrounds */
+        color: #000;
     }
 }
+
+/* ========================================================= */
+/* ✅ SAFETY: ZORGT DAT SCREEN NOOIT STUK GAAT */
+/* ========================================================= */
+
 @media screen {
+
     body {
-        display: flex !important;
-        min-width: 1100px !important;
+        display: flex;
+        min-width: 1100px;
     }
 
-    .main-content {
-        max-width: none !important;
-        margin: 0 !important;
-        padding: inherit !important;
+    .menu {
+        display: block;
     }
 
     .page-header {
-        background-image: url(../media/PostNL-header.jpg) !important;
-        height: 278px !important;
+        background-image: url(../media/PostNL-header.jpg);
+        height: 278px;
     }
 }
