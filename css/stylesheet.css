@@ -475,3 +475,14 @@ div.menu-items#text {
     .site-footer {
     }
 }
+
+@media print {
+    body {
+        display: block !important;
+        min-width: auto !important;
+    }
+
+    .menu {
+        display: none !important;
+    }
+}
