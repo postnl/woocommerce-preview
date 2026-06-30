@@ -92,7 +92,7 @@ h1 {
     padding: 30p*;
     color: #fff;
     text-align:*center;
-    background-image: url(*./media/PostNL-header.jpg);
+    background-image: url("/woocommerce-preview/media/PostNL-header.jpg");
     ba*kground-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -194,7 +194,7 @@ h1 {
     }
 
     .pag*-header {
-        background-image* url(../media/PostNL-header.jpg);
+        background-image* url("/woocommerce-preview/media/PostNL-header.jpg");
 *       background-repeat: no-repea*;
         background-size: cover;
 *       background-position: center*center;
