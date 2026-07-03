@@ -27,6 +27,14 @@ img {
     margin-bottom: 1em;
 }
 
+.setting-image {
+    display: block;
+    margin: 14px 0 22px 0;
+    max-width: 100%;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+}
+
 .image-header-postnl-logo {
     margin-left: 39%;
     height: 130px;
